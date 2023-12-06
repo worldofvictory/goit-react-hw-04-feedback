@@ -1,0 +1,21 @@
+
+.Feedlist{
+            display: inline;
+    }
+/*Оформлення елементів в li*/
+ .option {
+            display:inline-block ;
+            margin-right: 20px;
+        }
+/*Оформлення кнопки*/
+.btnFeed  {
+               background-color:white;  
+               border-radius: 10%;  
+            box-shadow: 0 2px 0 gray;
+            width: 70px;
+                }
+/*Оформлення заголовку */
+    .leaveFeed {
+         font-family: 'Times New Roman', Times, serif;  
+         font-size: 28px;                   
+    }
