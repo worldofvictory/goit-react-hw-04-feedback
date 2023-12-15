@@ -4,6 +4,7 @@ import FeedbackOp from "./feedback/feedback";
 import  Statistics  from "./statistics/statistics";
 import  Notification  from "./Notification/notificatiom";
 
+  
 
 const App = () => {
   const [good, setGood] = useState(0)
@@ -11,43 +12,46 @@ const App = () => {
   const [bad, setBad] = useState(0)
   const options = ['good', 'neutral', 'bad'];
 
-
-    const leaveFeed = (event) => {
-    let option = event.currentTarget.id;
-    
-    switch (option) {
+  const leaveFeed = (options) => {
+    switch (options) {
       case 'good':
-        setGood(prevState => prevState + 1);
+        setGood(prevGood => prevGood + 1);
         break;
       
       case 'neutral':
-        setNeutral(prevState => prevState + 1);
+        setNeutral(prevNeutral => prevNeutral + 1);
         break;
       
       case 'bad':
-        setBad(prevState => prevState + 1);
+        setBad(prevBad => prevBad + 1);
         break;
-      
       default:
-        return;         
+        return
     }
   }
-    
  
-   function countTotalFeed () {
-     const total = good + neutral + bad; 
-    return total; 
+   const countTotalFeed = () => {
+    return good + neutral + bad; 
+   
   };
+  const positivePercentage = () => {
+    const total = countTotalFeed();
 
-   function positivePercentage(total) {
-    return Math.round(good * 100 / total) || 0;     
+    if (total === 0) {
+      return 0; // Щоб уникнути ділення на нуль
+    }
+
+    let positivePercentage = (good / total) * 100;
+    positivePercentage = Math.round(positivePercentage);
+    return positivePercentage;
+  };  
   
- };
+
  
     
    
     const total = countTotalFeed();
-    const positive = positivePercentage(total);
+    const positive = positivePercentage();
    
 
 

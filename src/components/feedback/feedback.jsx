@@ -9,7 +9,7 @@ function FeedbackOp ({ options, leaveFeed }) {
         {options.map((option) => {
             return (
                 <li key={option} className={css.option}>
-                    <button name={option} onClick={leaveFeed} type='button' className={css.btnFeed}>
+                    <button name={option}  onClick={() => leaveFeed(option)} type='button' className={css.btnFeed}>
                         {option}
                     </button>
                 </li>
